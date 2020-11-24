@@ -8,12 +8,7 @@ class BowlingGameTest(unittest.TestCase):
 
     def test_gutter_game(self):
         self.rollMany(20, 0)
-
         self.assertEquals(0, self.g.return_score())
-
-    def rollMany(self, pins, roll):
-        for _ in range(0, pins):
-            self.g.roll(roll)
 
     def test_all_ones(self):
         self.rollMany(20, 1)
@@ -35,6 +30,10 @@ class BowlingGameTest(unittest.TestCase):
     def test_perfect_game(self):
         self.rollMany(12, 10)
         self.assertEquals(300, self.g.return_score())
+            
+    def rollMany(self, pins, roll):
+        for _ in range(0, pins):
+            self.g.roll(roll)
 
     def rollSpare(self):
         self.g.roll(5)
