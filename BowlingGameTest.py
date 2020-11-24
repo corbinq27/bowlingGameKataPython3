@@ -26,7 +26,7 @@ class BowlingGameTest(unittest.TestCase):
         self.assertEquals(16, self.g.return_score())
 
     def test_one_strike(self):
-        self.g.roll(10) #strike
+        self.rollStrike()
         self.g.roll(3)
         self.g.roll(4)
         self.rollMany(16, 0)
@@ -36,7 +36,9 @@ class BowlingGameTest(unittest.TestCase):
         self.rollMany(12, 10)
         self.assertEquals(300, self.g.return_score())
 
-
     def rollSpare(self):
         self.g.roll(5)
-        self.g.roll(5)  # spare
+        self.g.roll(5)
+
+    def rollStrike(self):
+        self.g.roll(10)
